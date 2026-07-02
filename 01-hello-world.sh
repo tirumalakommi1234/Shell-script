@@ -1,7 +1,8 @@
 #!/bin/bash
 
-echo "hellow-world"
+#echo "hi Gouri Tinnava?"
 
-# commented line
-
-echo "hi Gouri Tinnava?"
+num1=$1
+num2=$2
+sum=$(($num1+$num2))
+echo "sum of $num1 and $num2 is : $sum"
