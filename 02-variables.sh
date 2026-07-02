@@ -1,7 +1,7 @@
 #!/bin/bash
 
-p1=tiru # no space before and after equal ..here we are declaring the variables.
-p2=gouri
+p1=gouri # no space before and after equal ..here we are declaring the variables.
+p2=tiru
 
 
 echo "$p1 = Hi"
