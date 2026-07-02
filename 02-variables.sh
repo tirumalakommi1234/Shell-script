@@ -5,6 +5,6 @@ p2=tiru
 
 
 echo "$p1 = Hi"
-echo "$p2 = Hello"
-echo "$p1 = how r u"
+echo "${p2} = Hello"
+echo "${p1} = how r u"
 echo "$p2 = fine .. how r u"
