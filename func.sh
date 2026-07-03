@@ -1,7 +1,9 @@
 #!/bin/bash
 
+# Get the current user ID
 USERID=$(id -u)
 
+# Function to validate command execution
 VALIDATE() {
     if [ $1 -ne 0 ]
     then
@@ -12,31 +14,41 @@ VALIDATE() {
     fi
 }
 
-# Check if the user is root
+# Check if the user has root or sudo access
 if [ $USERID -ne 0 ]
 then
-    echo "You must have root or sudo access to execute the script."
+    echo "ERROR: You must have root or sudo access to execute the script."
     exit 1
 fi
 
+echo "You have root access. Continuing with installation..."
+
+# -------------------------
 # Install MySQL
-dnf list installed mysql
+# -------------------------
+dnf list installed mysql &>/dev/null
 
 if [ $? -ne 0 ]
 then
+    echo "MySQL is not installed. Installing..."
     dnf install mysql -y
     VALIDATE $? "Installing MySQL"
 else
     echo "MySQL is already installed."
 fi
 
+# -------------------------
 # Install Git
-dnf list installed git
+# -------------------------
+dnf list installed git &>/dev/null
 
 if [ $? -ne 0 ]
 then
+    echo "Git is not installed. Installing..."
     dnf install git -y
     VALIDATE $? "Installing Git"
 else
     echo "Git is already installed."
 fi
+
+echo "Script execution completed successfully."
